@@ -14,7 +14,11 @@ public class TicketRepositoryImplementation implements TicketRepository {
             return true;
         } else {
             System.out.println("Repository is full");
+        }
             return false;
         }
+        public TicketDto[] readAll() {
+            System.out.println("entered");
+            return dtos;
     }
 }

@@ -9,11 +9,15 @@ public class RiverRepositoryImplementation implements RiverRepository {
     @Override
     public boolean save(RiverDto riverDto) {
         if (index < dtos.length) {
-            dtos[index++] = riverDto; // Store the RiverDto in the array
+            dtos[index++] = riverDto;
             return true;
         } else {
             System.out.println("Repository is full");
+        }
             return false;
         }
+        public RiverDto[] readAll() {
+            System.out.println("entered");
+            return dtos;
     }
 }

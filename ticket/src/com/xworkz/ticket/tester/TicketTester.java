@@ -12,6 +12,7 @@ public class TicketTester {
         boolean result = ticketService.validateAndSave(ticketDto);
 
         System.out.println("Ticket validation and save result: " + result);
-
+        ticketService.validateAndSave(ticketDto);
+        ticketService.readAll();
     }
 }

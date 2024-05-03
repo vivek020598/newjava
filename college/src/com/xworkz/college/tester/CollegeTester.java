@@ -10,8 +10,9 @@ public class CollegeTester {
         System.out.println(collegeDto);
         CollegeService collegeService = new CollegeServiceImplementation();
         boolean result = collegeService.validateAndSave(collegeDto);
-
         System.out.println("College validation and save result: " + result);
+        collegeService.validateAndSave(collegeDto);
+        collegeService.readAll();
 
     }
 }

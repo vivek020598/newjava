@@ -10,7 +10,8 @@ public class RiverTester {
         System.out.println(riverDto);
         RiverService riverService = new RiverServiceImplementation();
         boolean result = riverService.validateAndSave(riverDto);
-
         System.out.println("River validation and save result: " + result);
+        riverService.validateAndSave(riverDto);
+        riverService.readAll();
     }
 }

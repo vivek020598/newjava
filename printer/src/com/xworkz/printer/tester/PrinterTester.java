@@ -12,6 +12,7 @@ public class PrinterTester {
         boolean result = printerService.validateAndSave(printerDto);
 
         System.out.println("Printer validation and save result: " + result);
-
+        printerService.validateAndSave(printerDto);
+        printerService.readAll();
     }
 }

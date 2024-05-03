@@ -10,8 +10,8 @@ public class VoteTester {
         System.out.println(voteDto);
         VoteService voteService = new VoteServiceImplementation();
         boolean result = voteService.validateAndSave(voteDto);
-
         System.out.println("Vote validation and save result: " + result);
-
+        voteService.validateAndSave(voteDto);
+        voteService.readAll();
     }
 }

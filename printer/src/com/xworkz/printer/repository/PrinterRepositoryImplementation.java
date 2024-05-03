@@ -9,11 +9,15 @@ public class PrinterRepositoryImplementation implements PrinterRepository {
     @Override
     public boolean save(PrinterDto printerDto) {
         if (index < dtos.length) {
-            dtos[index++] = printerDto; // Store the PrinterDto in the array
+            dtos[index++] = printerDto;
             return true;
         } else {
             System.out.println("Repository is full");
+        }
             return false;
         }
+        public PrinterDto[] readAll() {
+            System.out.println("entered");
+            return dtos;
     }
 }

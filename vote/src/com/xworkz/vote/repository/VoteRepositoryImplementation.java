@@ -3,7 +3,7 @@ package com.xworkz.vote.repository;
 import com.xworkz.vote.dto.VoteDto;
 
 public class VoteRepositoryImplementation implements VoteRepository {
-    private VoteDto[] dtos = new VoteDto[10]; // max 10 votes
+    private VoteDto[] dtos = new VoteDto[5];
     private int index = 0;
 
     @Override
@@ -14,7 +14,11 @@ public class VoteRepositoryImplementation implements VoteRepository {
             return true;
         } else {
             System.out.println("Repository is full");
-            return false;
         }
+        return false;
+    }
+    public VoteDto[] readAll() {
+        System.out.println("entered");
+        return dtos;
     }
 }

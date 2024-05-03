@@ -14,6 +14,7 @@ public class CartoonsRepositoryImplementation implements CartoonsRepository{
         System.out.println("save operation started");
         if(index< dtos.length){
             index++;
+            dtos[index++] = cartoonsDto;
             System.out.println(" saved successfully");
             return true;
         }

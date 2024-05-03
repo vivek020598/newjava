@@ -13,7 +13,11 @@ public class WatchRepositoryImplementation implements WatchRepository {
             return true;
         } else {
             System.out.println("Repository is full");
+        }
             return false;
         }
+        public WatchDto[] readAll() {
+            System.out.println("entered");
+            return dtos;
     }
 }

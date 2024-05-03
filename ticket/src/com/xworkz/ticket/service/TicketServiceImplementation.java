@@ -10,15 +10,39 @@ public class TicketServiceImplementation implements TicketService {
     @Override
     public boolean validateAndSave(TicketDto ticketDto) {
         if (ticketDto != null) {
-            System.out.println("TicketDto is not null");
             if (ticketDto.getTicketName() != null && ticketDto.getTicketPrice() > 0) {
-                boolean saved = ticketRepository.save(ticketDto);
-                if (saved) {
-                    System.out.println("Ticket saved successfully");
-                    return true;
+                if (!isPresent(ticketDto)) {
+                    boolean saved = ticketRepository.save(ticketDto);
+                    if (saved) {
+                        System.out.println("Ticket saved successfully");
+                        return true;
+                    }
                 }
             } else {
                 System.out.println("Invalid TicketDto fields");
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public void readAll() {
+        TicketDto[] ticketDtoArray = ticketRepository.readAll();
+        if (ticketDtoArray != null) {
+            for (TicketDto dto : ticketDtoArray) {
+                System.out.println(dto);
+            }
+        }
+    }
+
+    public boolean isPresent(TicketDto ticketDto) {
+        TicketDto[] ticketDtoArray = ticketRepository.readAll();
+        if (ticketDtoArray != null) {
+            for (TicketDto dto : ticketDtoArray) {
+                if (dto == ticketDto) {
+                    System.out.println("Already Present");
+                    return true;
+                }
             }
         }
         return false;

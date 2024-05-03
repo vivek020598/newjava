@@ -11,6 +11,7 @@ public class WatchTester {
         WatchService watchService = new WatchServiceImplementation();
         boolean result = watchService.validateAndSave(watchDto);
         System.out.println("Watch validation and save result: " + result);
-
+        watchService.validateAndSave(watchDto);
+        watchService.readAll();
     }
 }

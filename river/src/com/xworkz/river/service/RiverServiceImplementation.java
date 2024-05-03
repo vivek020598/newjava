@@ -11,13 +11,38 @@ public class RiverServiceImplementation implements RiverService {
     public boolean validateAndSave(RiverDto riverDto) {
         if (riverDto != null) {
             if (riverDto.getRiverName() != null && riverDto.getLength() > 0 && riverDto.getCountry() != null) {
-                boolean saved = riverRepository.save(riverDto);
-                if (saved) {
-                    System.out.println("River saved successfully");
-                    return true;
+                if (!isPresent(riverDto)) {
+                    boolean saved = riverRepository.save(riverDto);
+                    if (saved) {
+                        System.out.println("River saved successfully");
+                        return true;
+                    }
                 }
             } else {
                 System.out.println("Invalid RiverDto fields");
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public void readAll() {
+        RiverDto[] riverDtoArray = riverRepository.readAll();
+        if (riverDtoArray != null) {
+            for (RiverDto dto : riverDtoArray) {
+                System.out.println(dto);
+            }
+        }
+    }
+
+    public boolean isPresent(RiverDto riverDto) {
+        RiverDto[] riverDtoArray = riverRepository.readAll();
+        if (riverDtoArray != null) {
+            for (RiverDto dto : riverDtoArray) {
+                if (dto == riverDto) {
+                    System.out.println("Already Present");
+                    return true;
+                }
             }
         }
         return false;
